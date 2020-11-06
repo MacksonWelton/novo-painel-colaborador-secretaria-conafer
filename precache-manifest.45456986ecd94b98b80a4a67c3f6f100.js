@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3c4ff3da092f40d59a2b9e2440312511",
+    "revision": "c35748b425a0a67982ec54963fb7d4e3",
     "url": "/novo-painel-colaborador-secretaria/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/novo-painel-colaborador-secretaria/static/css/2.b472b2fd.chunk.css"
   },
   {
-    "revision": "032a8f24bf7e9ad05484",
+    "revision": "aa31a67626084688facf",
     "url": "/novo-painel-colaborador-secretaria/static/css/main.c4e9001a.chunk.css"
   },
   {
@@ -20,12 +20,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/novo-painel-colaborador-secretaria/static/js/2.4cf05798.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "032a8f24bf7e9ad05484",
-    "url": "/novo-painel-colaborador-secretaria/static/js/main.1dbc5935.chunk.js"
+    "revision": "aa31a67626084688facf",
+    "url": "/novo-painel-colaborador-secretaria/static/js/main.fa090d91.chunk.js"
   },
   {
     "revision": "8d0d562f4ec3c131ac27d52de65ecd17",
-    "url": "/novo-painel-colaborador-secretaria/static/js/main.1dbc5935.chunk.js.LICENSE.txt"
+    "url": "/novo-painel-colaborador-secretaria/static/js/main.fa090d91.chunk.js.LICENSE.txt"
   },
   {
     "revision": "78de777bb23cb824f088",

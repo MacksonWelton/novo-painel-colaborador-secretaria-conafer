@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/novo-painel-colaborador-secretaria/precache-manifest.2ea3ffeebfc8df7e1b0e3f4286f393ce.js"
+  "/novo-painel-colaborador-secretaria/precache-manifest.45456986ecd94b98b80a4a67c3f6f100.js"
 );
 
 self.addEventListener('message', (event) => {
