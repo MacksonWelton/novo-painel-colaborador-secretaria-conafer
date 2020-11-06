@@ -25,33 +25,33 @@ import {
   ModalFooter,
 } from "reactstrap";
 
-import Header from "../../../components/Headers/Header";
+import {
+  newProposals,
+  newComment,
+  downloadProposals,
+  deleteProposals,
+} from "../../redux/actions/Propostas";
 
-import { deleteBudgets, downloadBudgets, newBudgets, newComment } from "../../../redux/actions/Orcamentos";
+import PropostasData from "./PropostasData";
+import { Tr } from "./styles";
+import ProgressCard from "components/ProgressCard/ProgressCard";
+import { InputStyled } from "views/Contratos/styles";
+import { CardHeaderStyled } from "views/Contratos/styles";
+import Header from "components/Headers/Header";
+import BotoesDeAcao from "../../components/BotoesDeAcao/BotoesDeAcao";
 
-import OrcamentosData from "./OrcamentosData";
-import ProgressCard from "../../../components/ProgressCard/ProgressCard";
-import { Tr } from "./Styles";
-import { InputStyled } from "./Styles";
-import { CardHeaderStyled } from "./Styles";
-import BotoesDeAcao from "components/BotoesDeAcao/BotoesDeAcao";
-
-const Orcamentos = () => {
+const Propostas = () => {
   const dispatch = useDispatch();
-  const budgets = useSelector((state) => state.BudgetsReducer.budgets);
+  const proposals = useSelector((state) => state.ProposalReducer.proposals);
 
   useEffect(() => {
-    dispatch(newBudgets(OrcamentosData));
+    dispatch(newProposals(PropostasData));
   }, [dispatch]);
 
   const [open, setOpen] = useState(false);
-  const [budget, setBudget] = useState({});
+  const [proposal, setProposal] = useState({});
   const [input, setInput] = useState();
   const [checkbox, setCheckbox] = useState([]);
-
-  const handleChangeInput = (event) => {
-    setInput(event.target.value);
-  };
 
   const handleChangeCheckbox = (event) => {
     const { value, checked } = event.target;
@@ -67,8 +67,8 @@ const Orcamentos = () => {
 
     if (checked) {
       setCheckbox(
-        budgets.map((budget) => {
-          return { id: budget.id, checked: true };
+        proposals.map((proposal) => {
+          return { id: proposal.id, checked: true };
         })
       );
     } else {
@@ -76,17 +76,21 @@ const Orcamentos = () => {
     }
   };
 
+  const handleDownloadsProposals = () => {
+    dispatch(downloadProposals(checkbox));
+  };
+
+  const handleDeleteProposals = () => {
+    dispatch(deleteProposals(checkbox));
+  };
+
+  const handleChangeInput = (event) => {
+    setInput(event.target.value);
+  };
+
   const submitForm = (event) => {
     event.preventDefault();
     dispatch(newComment(input));
-  };
-
-  const handleDownloadsBudgets = () => {
-    dispatch(downloadBudgets(checkbox));
-  };
-
-  const handleDeleteBudgets = () => {
-    dispatch(deleteBudgets(checkbox));
   };
 
   const getBadge = (status) => {
@@ -106,34 +110,34 @@ const Orcamentos = () => {
 
   const CardData = [
     {
-      title: "Enviados",
-      progress: budgets.filter((contract) => contract.status === "Enviado")
+      title: "Enviadas",
+      progress: proposals.filter((contract) => contract.status === "Enviado")
         .length,
-      max: budgets.length,
-      icon: "fas fa-stopwatch",
+      max: proposals.length,
+      icon: "fas fa-paper-plane",
       color: "blue",
     },
     {
-      title: "Expirados",
-      progress: budgets.filter((contract) => contract.status === "Expirado")
+      title: "Expiradas",
+      progress: proposals.filter((contract) => contract.status === "Expirado")
         .length,
-      max: budgets.length,
+      max: proposals.length,
       icon: "fas fa-exclamation-triangle",
       color: "yellow",
     },
     {
-      title: "Declinados",
-      progress: budgets.filter((contract) => contract.status === "Declinado")
+      title: "Declinadas",
+      progress: proposals.filter((contract) => contract.status === "Declinado")
         .length,
-      max: budgets.length,
+      max: proposals.length,
       icon: "fas fa-times",
       color: "red",
     },
     {
-      title: "Aceitos",
-      progress: budgets.filter((contract) => contract.status === "Aceito")
+      title: "Aceitas",
+      progress: proposals.filter((contract) => contract.status === "Aceito")
         .length,
-      max: budgets.length,
+      max: proposals.length,
       icon: "fas fa-check",
       color: "green",
     },
@@ -146,8 +150,8 @@ const Orcamentos = () => {
         <Row className="mt-5">
           <div className="col">
             <Card className="bg-default shadow">
-              <CardHeaderStyled>
-                <h3 className="text-white mb-0">Lista de Orçamentos</h3>
+              <CardHeaderStyled className="bg-transparent border-0 d-flex justify-content-between align-items-center">
+                <h3 className="text-white mb-0">Lista de Propostas</h3>
                 <div className="d-flex align-items-center">
                   <InputStyled type="text" placeholder="Pesquisar..." />
                   <Button className="bg-transparent border-0">
@@ -168,8 +172,8 @@ const Orcamentos = () => {
                       <th></th>
                       <th>
                         <BotoesDeAcao
-                          handleDownloadsItems={handleDownloadsBudgets}
-                          handleDeleteItems={handleDeleteBudgets}
+                          handleDownloadsItems={handleDownloadsProposals}
+                          handleDeleteItems={handleDeleteProposals}
                         />
                       </th>
                     </tr>
@@ -183,21 +187,22 @@ const Orcamentos = () => {
                         />
                       </div>
                     </th>
-                    <th scope="col">Orçamento</th>
+                    <th scope="col">Proposta</th>
                     <th scope="col">Valor</th>
-                    <th scope="col">Data</th>
+                    <th scope="col">Data de Criação</th>
                     <th scope="col">Data de Expiração</th>
                     <th scope="col">Status</th>
                     <th scope="col" />
                   </tr>
                 </thead>
                 <tbody>
-                  {budgets.map((budget, index) => (
+                  {proposals.map((proposal, index) => (
                     <Tr
                       key={index}
-                      onClick={() => {
+                      onClick={(event) => {
+                        event.stopPropagation();
                         setOpen(!open);
-                        setBudget(budget);
+                        setProposal(proposal);
                       }}
                     >
                       <td
@@ -206,22 +211,22 @@ const Orcamentos = () => {
                       >
                         <Input
                           checked={
-                            checkbox.filter((check) => check.id === budget.id)
+                            checkbox.filter((check) => check.id === proposal.id)
                               .length
                           }
-                          value={budget.id}
+                          value={proposal.id}
                           type="checkbox"
                           onChange={handleChangeCheckbox}
                         />
                       </td>
-                      <td>{budget.name}</td>
-                      <td>{budget.value}</td>
-                      <td>{budget.createdIn}</td>
-                      <td>{budget.expirationDate}</td>
+                      <td>{proposal.name}</td>
+                      <td>{proposal.value}</td>
+                      <td>{proposal.createdIn}</td>
+                      <td>{proposal.expirationDate}</td>
                       <td>
                         <Badge color="" className="badge-dot">
-                          <i className={getBadge(budget.status)} />
-                          {budget.status}
+                          <i className={getBadge(proposal.status)} />
+                          {proposal.status}
                         </Badge>
                       </td>
                       <td className="text-right">
@@ -244,7 +249,19 @@ const Orcamentos = () => {
                               href="#pablo"
                               onClick={(e) => e.preventDefault()}
                             >
-                              Excluir
+                              Action
+                            </DropdownItem>
+                            <DropdownItem
+                              href="#pablo"
+                              onClick={(e) => e.preventDefault()}
+                            >
+                              Another action
+                            </DropdownItem>
+                            <DropdownItem
+                              href="#pablo"
+                              onClick={(e) => e.preventDefault()}
+                            >
+                              Something else here
                             </DropdownItem>
                           </DropdownMenu>
                         </UncontrolledDropdown>
@@ -321,16 +338,16 @@ const Orcamentos = () => {
             setOpen(!open);
           }}
         >
-          {budget.name}
+          {proposal.name}
         </ModalHeader>
         <ModalBody>
           <>
-            <p className="mb-0">{budget.description}</p>
-            <p className="h6 mb-3">Criado em: {budget.createdIn}</p>
+            <p className="mb-0">{proposal.description}</p>
+            <p className="h6 mb-3">Criado em: {proposal.createdIn}</p>
           </>
           <>
-            {budget.comments &&
-              budget.comments.map((comment, index) => (
+            {proposal.comments &&
+              proposal.comments.map((comment, index) => (
                 <div
                   key={index}
                   className={
@@ -378,4 +395,4 @@ const Orcamentos = () => {
   );
 };
 
-export default Orcamentos;
+export default Propostas;

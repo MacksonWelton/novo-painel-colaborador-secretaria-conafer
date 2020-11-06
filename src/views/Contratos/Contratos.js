@@ -29,17 +29,12 @@ import {
 
 import Header from "../../components/Headers/Header";
 
-import {
-  newComment,
-  newContracts,
-  downloadContracts,
-  deleteContracts,
-} from "../../redux/actions/Contratos";
+import { deleteContracts, downloadContracts, newComment, newContracts } from "../../redux/actions/Contratos";
 
 import ContratosData from "./ContratosData";
 import { CardHeaderStyled, InputStyled, Tr } from "./styles";
 import ProgressCard from "../../components/ProgressCard/ProgressCard";
-import BotoesDeAcao from "components/BotoesDeAcao/BotoesDeAcao";
+import BotoesDeAcao from "../../components/BotoesDeAcao/BotoesDeAcao";
 
 const Contratos = () => {
   const dispatch = useDispatch();
@@ -56,20 +51,12 @@ const Contratos = () => {
     value: "",
     id: "",
   });
+  const [checkbox, setCheckbox] = useState([]);
+
   const [input, setInput] = useState({
     contract: "",
     description: "",
   });
-  const [checkbox, setCheckbox] = useState([]);
-
-  const submitForm = (event) => {
-    event.preventDefault();
-  };
-
-  const handleChangeInput = (event) => {
-    const { name, value } = event.target;
-    setInput({ ...input, [name]: value });
-  };
 
   const handleChangeCheckbox = (event) => {
     const { value, checked } = event.target;
@@ -94,12 +81,13 @@ const Contratos = () => {
     }
   };
 
-  const handleDownloadsContracts = () => {
-    dispatch(downloadContracts(checkbox));
+  const submitForm = (event) => {
+    event.preventDefault();
   };
 
-  const handleDeleteContracts = () => {
-    dispatch(deleteContracts(checkbox));
+  const handleChangeInput = (event) => {
+    const { name, value } = event.target;
+    setInput({ ...input, [name]: value });
   };
 
   const handleChangeInputAddComment = (event, id) => {
@@ -111,7 +99,13 @@ const Contratos = () => {
     dispatch(newComment(addComment));
   };
 
+  const handleDownloadsContracts = () => {
+    dispatch(downloadContracts(checkbox));
+  };
 
+  const handleDeleteContracts = () => {
+    dispatch(deleteContracts(checkbox));
+  };
 
   const getBadge = (status) => {
     switch (status) {
@@ -263,7 +257,19 @@ const Contratos = () => {
                               href="#pablo"
                               onClick={(e) => e.preventDefault()}
                             >
-                              Excluir
+                              Action
+                            </DropdownItem>
+                            <DropdownItem
+                              href="#pablo"
+                              onClick={(e) => e.preventDefault()}
+                            >
+                              Another action
+                            </DropdownItem>
+                            <DropdownItem
+                              href="#pablo"
+                              onClick={(e) => e.preventDefault()}
+                            >
+                              Something else here
                             </DropdownItem>
                           </DropdownMenu>
                         </UncontrolledDropdown>

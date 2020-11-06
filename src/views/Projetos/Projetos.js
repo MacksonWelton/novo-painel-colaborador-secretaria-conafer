@@ -37,7 +37,7 @@ import { Tr } from "./Styles";
 import { InputStyled } from "./Styles";
 import { CardHeaderStyled } from "./Styles";
 import { useHistory } from "react-router-dom";
-import BotoesDeAcao from "components/BotoesDeAcao/BotoesDeAcao";
+import BotoesDeAcao from "../../components/BotoesDeAcao/BotoesDeAcao";
 
 const Projetos = () => {
   const dispatch = useDispatch();
