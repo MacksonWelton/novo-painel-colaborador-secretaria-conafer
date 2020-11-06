@@ -22,7 +22,7 @@
   "bugs": {
     "url": "https://github.com/creativetimofficial/argon-dashboard-react/issues"
   },
-  "homepage": "https://macksonwelton.github.io/novo-painel-colaborador-secretaria/",
+  "homepage": "https://macksonwelton.github.io/novo-painel-colaborador-secretaria-conafer/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
