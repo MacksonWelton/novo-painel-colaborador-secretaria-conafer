@@ -1,0 +1,36 @@
+{
+  "files": {
+    "main.css": "/novo-painel-colaborador-secretaria/static/css/main.c4e9001a.chunk.css",
+    "main.js": "/novo-painel-colaborador-secretaria/static/js/main.1dbc5935.chunk.js",
+    "main.js.map": "/novo-painel-colaborador-secretaria/static/js/main.1dbc5935.chunk.js.map",
+    "runtime-main.js": "/novo-painel-colaborador-secretaria/static/js/runtime-main.86a66c0e.js",
+    "runtime-main.js.map": "/novo-painel-colaborador-secretaria/static/js/runtime-main.86a66c0e.js.map",
+    "static/css/2.b472b2fd.chunk.css": "/novo-painel-colaborador-secretaria/static/css/2.b472b2fd.chunk.css",
+    "static/js/2.4cf05798.chunk.js": "/novo-painel-colaborador-secretaria/static/js/2.4cf05798.chunk.js",
+    "static/js/2.4cf05798.chunk.js.map": "/novo-painel-colaborador-secretaria/static/js/2.4cf05798.chunk.js.map",
+    "index.html": "/novo-painel-colaborador-secretaria/index.html",
+    "precache-manifest.2ea3ffeebfc8df7e1b0e3f4286f393ce.js": "/novo-painel-colaborador-secretaria/precache-manifest.2ea3ffeebfc8df7e1b0e3f4286f393ce.js",
+    "service-worker.js": "/novo-painel-colaborador-secretaria/service-worker.js",
+    "static/css/2.b472b2fd.chunk.css.map": "/novo-painel-colaborador-secretaria/static/css/2.b472b2fd.chunk.css.map",
+    "static/css/main.c4e9001a.chunk.css.map": "/novo-painel-colaborador-secretaria/static/css/main.c4e9001a.chunk.css.map",
+    "static/js/2.4cf05798.chunk.js.LICENSE.txt": "/novo-painel-colaborador-secretaria/static/js/2.4cf05798.chunk.js.LICENSE.txt",
+    "static/js/main.1dbc5935.chunk.js.LICENSE.txt": "/novo-painel-colaborador-secretaria/static/js/main.1dbc5935.chunk.js.LICENSE.txt",
+    "static/media/argon-react.png": "/novo-painel-colaborador-secretaria/static/media/argon-react.f38ddea9.png",
+    "static/media/all.min.css": "/novo-painel-colaborador-secretaria/static/media/fa-solid-900.cdfec5cf.woff",
+    "static/media/facebook.svg": "/novo-painel-colaborador-secretaria/static/media/facebook.2fb66b88.svg",
+    "static/media/google.svg": "/novo-painel-colaborador-secretaria/static/media/google.87be59a1.svg",
+    "static/media/nucleo.css": "/novo-painel-colaborador-secretaria/static/media/nucleo-icons.f82ec6ba.ttf",
+    "static/media/profile-cover.jpg": "/novo-painel-colaborador-secretaria/static/media/profile-cover.e2582654.jpg",
+    "static/media/sistemalogo.png": "/novo-painel-colaborador-secretaria/static/media/sistemalogo.0cd7c7cc.png",
+    "static/media/team-1-800x800.jpg": "/novo-painel-colaborador-secretaria/static/media/team-1-800x800.53033970.jpg",
+    "static/media/team-3-800x800.jpg": "/novo-painel-colaborador-secretaria/static/media/team-3-800x800.497bb359.jpg",
+    "static/media/team-4-800x800.jpg": "/novo-painel-colaborador-secretaria/static/media/team-4-800x800.23007132.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.86a66c0e.js",
+    "static/css/2.b472b2fd.chunk.css",
+    "static/js/2.4cf05798.chunk.js",
+    "static/css/main.c4e9001a.chunk.css",
+    "static/js/main.1dbc5935.chunk.js"
+  ]
+}
